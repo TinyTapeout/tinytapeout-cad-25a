@@ -1,0 +1,10 @@
+{
+  "app": "Tiny Tapeout tt10 869892b7",
+  "repo": "https://github.com/TinyTapeout/tt-autosel",
+  "commit": "34086f1978d35f3f85fca726d3f3393932fba0ac",
+  "workflow_url": "https://github.com/TinyTapeout/tt-autosel/actions/runs/15475658665",
+  "sort_id": 1749155902699,
+  "openlane_version": "OpenLane2 2.2.9",
+  "pdk_name": "open_pdks",
+  "pdk_version": "open_pdks 0fe599b2afb6708d281543108caf8310912f54af"
+}
