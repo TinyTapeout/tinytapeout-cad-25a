@@ -1,6 +1,6 @@
 ## How it works
 
-32-bit RISC-V IMA processor, capable of booting Linux. Features 16 MiB of external SPI flash memory, 8 MiB of external PSRAM, a UART peripheral, and a SPI peripheral.
+32-bit RISC-V IMA processor, capable of booting Linux. Features 16 MiB of external SPI flash memory, 16 MiB of external PSRAM (8 MiB per bank), a UART peripheral, and a SPI peripheral.
 
 ## System Memory Map
 
@@ -10,9 +10,10 @@ The system memory map is as follows:
 | ---------- | ------ | -------------------- |
 | 0x10000000 | 0x14   | UART Peripheral      |
 | 0x10500000 | 0x14   | SPI Peripheral       |
+| 0x10600000 | 0x0c   | GPIO Peripheral      |
 | 0x11100000 | 0x04   | Reset / HALT control |
 | 0x20000000 | 16 MiB | SPI Flash            |
-| 0x80000000 | 8 MiB  | PSRAM                |
+| 0x80000000 | 16 MiB | PSRAM                |
 
 The system boots from the SPI flash memory. After reset, the CPU starts executing code from 0x20100000 (corresponding to the offset 0x100000 into the SPI flash memory), where the bootloader is expected to be.
 
@@ -31,6 +32,14 @@ The system boots from the SPI flash memory. After reset, the CPU starts executin
 | 0x10500000 | SPI_CTRL0 | SPI Peripheral Control           |
 | 0x10500004 | SPI_DATA0 | SPI Data                         |
 | 0x10500010 | SPI_DIV   | Clock divider for SPI peripheral |
+
+### GPIO Peripheral registers
+
+| Address    | Name        | Description                     |
+|------------|-------------|---------------------------------|
+| 0x10600000 | GPIO_UO_EN  | Enable bits for uo_out pins     |
+| 0x10600004 | GPIO_UO_OUT | Write to uo_out pins            |
+| 0x10600008 | GPIO_UI_IN  | Read from ui_in pins(read-only) |
 
 ### CPU control register
 
