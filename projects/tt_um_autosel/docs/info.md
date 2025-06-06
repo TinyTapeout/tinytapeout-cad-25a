@@ -13,6 +13,10 @@ This is a prototype for automatic project selection in Tiny Tapeout. It reads th
 
 The project also prints the 16-bit number read from the EEPROM to the UART port on `uo_out[4]` (baud rate 115200, 8N1) for debugging purposes.
 
+The design also contains a ring oscillator that can be enabled by setting `rosc_clk_en` (ui_in[7]) to 1. The ring oscillator is used to generate a clock signal on the `rosc_clk_out` pin (uo_out[7]) that can be fed back to the `clk` input, so no external clock is needed. 
+
+The ring oscillator has 11 stages and a 5-bit divider. We estimate the frequency of the ring oscillator to be around 550 MHz, and the frequency of the divided clock to be around 17.2 MHz.
+
 ## How to test
 
 You need to connect a 1 kbit or 2 kbit I2C EEPROM (e.g. 24C01 or 24C02), program the selected Tiny Tapeout design address into the first two bytes of the EEPROM memory, and connect the EEPROM to the SCL/SDA pins with a 10k pull-up resistor. After connecting the EEPROM, reset the design, and and then observe the ctrl output pins to see if the design id is correctly read from the EEPROM:
@@ -22,6 +26,8 @@ You need to connect a 1 kbit or 2 kbit I2C EEPROM (e.g. 24C01 or 24C02), program
 - `ctrl_ena` should go high
 
 For more information about those signals, please refer to the [Tiny Tapeout Multiplexer documentation](https://github.com/TinyTapeout/tt-multiplexer/blob/main/docs/INFO.md).
+
+You can clock the design externally with a 20 MHz clock signal, or enable the ring oscillator by setting `rosc_clk_en` to 1 and connect the `rosc_clk_out` pin to the `clk` input.
 
 ## External hardware
 

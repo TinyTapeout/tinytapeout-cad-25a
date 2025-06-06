@@ -23,6 +23,9 @@ project:
     - "tt_autosel.v"
     - "uart_debug_out.v"
     - "uart_tx.v"
+    - "ring_osc.v"
+    - "inverter.v"
+    - "clock_divider_stage.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -35,7 +38,7 @@ pinout:
   ui[4]: ""
   ui[5]: ""
   ui[6]: ""
-  ui[7]: ""
+  ui[7]: "rosc_clk_en"
 
   # Outputs
   uo[0]: "ctrl_sel_rst_n"
@@ -45,7 +48,7 @@ pinout:
   uo[4]: "uart_tx"
   uo[5]: ""
   uo[6]: ""
-  uo[7]: ""
+  uo[7]: "rosc_clk_out"
 
   # Bidirectional pins
   uio[0]: "SCL"
