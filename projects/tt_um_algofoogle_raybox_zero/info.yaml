@@ -1,9 +1,9 @@
 # Tiny Tapeout project information
 project:
-  title:        "raybox-zero TTIHP0p2 edition"
+  title:        "raybox-zero TTCAD25a edition"
   author:       "algofoogle (Anton Maurovic)"
   discord:      "algofoogle"
-  description:  "TTCAD25a v1.6 resub of 'simple VGA ray caster game demo' from TT07"
+  description:  "TTCAD25a v1.7 resub of 'simple VGA ray caster game demo' from TT07"
   language:     "Verilog"
   clock_hz:     25_175_000  # Clock frequency in Hz (or 0 if not applicable)
 
