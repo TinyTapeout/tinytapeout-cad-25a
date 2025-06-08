@@ -23,6 +23,8 @@ project:
     - "peri_simple_example.v"
     - "peri_uart.v"
     - "user_peripherals/tqvp_edge_counter.v"
+    - "user_peripherals/simple_pwm.v"
+    - "user_peripherals/game_pmod.v"
     - "tinyQV/cpu/tinyqv.v"
     - "tinyQV/cpu/alu.v"
     - "tinyQV/cpu/core.v"
