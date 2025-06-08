@@ -1,0 +1,86 @@
+# Tiny Tapeout project information
+project:
+  title:        "raybox-zero TTIHP0p2 edition"
+  author:       "algofoogle (Anton Maurovic)"
+  discord:      "algofoogle"
+  description:  "TTCAD25a v1.6 resub of 'simple VGA ray caster game demo' from TT07"
+  language:     "Verilog"
+  clock_hz:     25_175_000  # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "6x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_algofoogle_raybox_zero"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - rbz_options.v
+    - raybox-zero/src/rtl/fixed_point_params.v
+    - raybox-zero/src/rtl/helpers.v
+    - raybox-zero/src/rtl/rbzero.v
+    - raybox-zero/src/rtl/spi_registers.v
+    - raybox-zero/src/rtl/debug_overlay.v
+    - raybox-zero/src/rtl/map_overlay.v
+    - raybox-zero/src/rtl/map_rom.v
+    - raybox-zero/src/rtl/lzc.v
+    - raybox-zero/src/rtl/reciprocal.v
+    - raybox-zero/src/rtl/wall_tracer.v
+    - raybox-zero/src/rtl/row_render.v
+    - raybox-zero/src/rtl/vga_mux.v
+    - raybox-zero/src/rtl/vga_sync.v
+    - project.v
+    # - raybox-zero/src/rtl/pov.v  ## not needed if rbz_options.v selects POV control via spi_registers.
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: spi_sck
+  ui[1]: spi_sdi  # aka MOSI
+  ui[2]: spi_csb  # aka ss_n
+  ui[3]: debug    # Show debug overlays on screen?
+  ui[4]: inc_px   # Increment px
+  ui[5]: inc_py   # Increment py
+  ui[6]: reg      # Present registered or unregistered outputs?
+  ui[7]: tex_pmod_type
+  #NOTE: For texture_pmod_type:
+  # 0=Moser's QSPI PMOD;
+  #   In this mode, it's assumed gen_texb is not used, i.e. we're always using
+  #   QSPI textures when tex_pmod_type==0. This eliminates the need for an external
+  #   pull-up resistor; if it weren't for this, then:
+  #     The PMOD should have a weak pull-up applied to uio[5] (its io3 pin).
+  #     This would ensure gen_texb is DISABLED during the times when it would otherwise float.
+  #     Besides that, the memory should be written with io3==1 in the whole ROM so that any
+  #     read doesn't override the weak pull-up and activate gen_texb mode.
+  #     NOTE: Looks like there are jumpers to enable/disable the chips (must cut traces first)...?
+  # 1=Digilent SPI PMOD;
+  #   Expect uio[5] (RSTb) is weakly pulled up, but can be pulled low for GEN_TEXb instead.
+
+  # Outputs: Tiny VGA PMOD (https://tinytapeout.com/specs/pinouts/#vga-output)
+  uo[0]: red[1]
+  uo[1]: green[1]
+  uo[2]: blue[1]
+  uo[3]: vsync_n
+  uo[4]: red[0]
+  uo[5]: green[0]
+  uo[6]: blue[0]
+  uo[7]: hsync_n
+
+  # Bidirectional pins
+  #NOTE: The following are compatible with https://digilent.com/reference/pmod/pmodsf3/start
+  # and https://github.com/mole99/qspi-pmod (depending on which is selected by tex_pmod_type).
+  ######## type=1                    type=0
+  uio[0]: 'Out: digilent_tex_csb   / Out: moser_tex_csb'
+  uio[1]: 'I/O: digilent_tex_io0   / I/O: moser_tex_io0'
+  uio[2]: 'In:  digilent_tex_io1   / In:  moser_tex_io1'
+  uio[3]: 'Out: digilent_tex_sclk  / Out: moser_tex_sclk'
+  uio[4]: 'In:  SPARE              / In:  moser_tex_io2'
+  uio[5]: 'In:  gen_texb           / In:  moser_tex_io3'     # aka GEN_TEXb, aka use_texture_spi (when high) -- ignored when tex_pmod_type==0.
+  uio[6]: 'In:  digilent_tex_io2   / N/A: moser_CS1'         # With type==0 it outputs 1 (to disable RAM A).
+  uio[7]: 'In:  digilent_tex_io3   / N/A: moser_CS2'         # With type==0 it outputs 1 (to disable RAM B). NOTE: Otherwise unused for type==1, or MAYBE SPARE
+
+# Do not change!
+yaml_version: 6
