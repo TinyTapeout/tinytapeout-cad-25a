@@ -1,0 +1,65 @@
+# Tiny Tapeout project information
+project:
+  title:        "TTCAD25a SKY130 RF YOLO Test"
+  author:       "Sylvain Munaut"
+  discord:      "246tnt"
+  description:  "Test structures for a future register file macro"
+  language:     "Analog"
+  clock_hz:     0
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x2"
+
+  # How many analog pins does your project use?
+  analog_pins: 0
+  uses_3v3: false
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_tnt_rf_yolo_test"
+
+  # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
+  source_files:        
+    - "project.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: "reb_ena"
+  ui[1]: "reb_data"
+  ui[2]: "we_ena"
+  ui[3]: "we_data"
+  ui[4]: "rea_ena"
+  ui[5]: "rea_data"
+  ui[6]: "in_data"
+  ui[7]: "in_clk"
+
+  # Outputs
+  uo[0]: "rlb[14]"
+  uo[1]: "rlb[15]"
+  uo[2]: "rlb[16]"
+  uo[3]: "rlb[17]"
+  uo[4]: "rlb[18]"
+  uo[5]: "rlb[19]"
+  uo[6]: "rlb[20]"
+  uo[7]: "rlb[21]"
+
+  # Bidirectional pins
+  uio[0]: "rla[10]"
+  uio[1]: "rla[11]"
+  uio[2]: "rla[12]"
+  uio[3]: "rla[13]"
+  uio[4]: "rla[14]"
+  uio[5]: "rla[15]"
+  uio[6]: "rla[16]"
+  uio[7]: "rla[17]"
+
+  # Analog pins
+  ua[0]: ""
+  ua[1]: ""
+  ua[2]: ""
+  ua[3]: ""
+  ua[4]: ""
+  ua[5]: ""
+
+# Do not change!
+yaml_version: 6
