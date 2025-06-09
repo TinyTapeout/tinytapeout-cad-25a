@@ -1,0 +1,52 @@
+63. Printing statistics.
+
+=== tt_um_sky130_as_sc_hs ===
+
+   Number of wires:               3031
+   Number of wire bits:           3066
+   Number of public wires:         517
+   Number of public wire bits:     552
+   Number of ports:                  8
+   Number of port bits:             43
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               3050
+     sky130_as_sc_hs__and2_2       112
+     sky130_as_sc_hs__ao21_2        48
+     sky130_as_sc_hs__ao21b_2        2
+     sky130_as_sc_hs__ao22_2        65
+     sky130_as_sc_hs__ao31_2        57
+     sky130_as_sc_hs__aoi211_2      29
+     sky130_as_sc_hs__aoi21_2       41
+     sky130_as_sc_hs__aoi21b_2       2
+     sky130_as_sc_hs__aoi22_2       11
+     sky130_as_sc_hs__aoi31_2       15
+     sky130_as_sc_hs__buff_11        3
+     sky130_as_sc_hs__buff_2       636
+     sky130_as_sc_hs__buff_6         2
+     sky130_as_sc_hs__dfxtp_2      526
+     sky130_as_sc_hs__hcf_10         3
+     sky130_as_sc_hs__iao211_2      18
+     sky130_as_sc_hs__inv_2         74
+     sky130_as_sc_hs__maj3_2         7
+     sky130_as_sc_hs__mux2_2       841
+     sky130_as_sc_hs__nand2_2      101
+     sky130_as_sc_hs__nand2b_2      10
+     sky130_as_sc_hs__nand3_2       34
+     sky130_as_sc_hs__nand4_2       20
+     sky130_as_sc_hs__nor2_2       183
+     sky130_as_sc_hs__nor2b_2        5
+     sky130_as_sc_hs__nor3_2        17
+     sky130_as_sc_hs__oa21_2        20
+     sky130_as_sc_hs__oa22_2        21
+     sky130_as_sc_hs__oai21_2       38
+     sky130_as_sc_hs__oai22_2       10
+     sky130_as_sc_hs__or2_2         64
+     sky130_as_sc_hs__tieh           1
+     sky130_as_sc_hs__tiel           2
+     sky130_as_sc_hs__xnor2_2       32
+
+   Chip area for module '\tt_um_sky130_as_sc_hs': 34910.982400
+     of which used for sequential elements: 12504.492800 (35.82%)
+
