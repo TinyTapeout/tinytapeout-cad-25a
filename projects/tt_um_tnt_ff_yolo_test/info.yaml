@@ -1,0 +1,65 @@
+# Tiny Tapeout project information
+project:
+  title:        "TTCAD25a SKY130 FF YOLO Test"
+  author:       "Sylvain Munaut"
+  discord:      "246tnt"
+  description:  "Test fliflop"
+  language:     "Analog"
+  clock_hz:     0
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"
+
+  # How many analog pins does your project use?
+  analog_pins: 0
+  uses_3v3: false
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_tnt_ff_yolo_test"
+
+  # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
+  source_files:        
+    - "project.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: "x"
+  ui[1]: "x"
+  ui[2]: "x"
+  ui[3]: "x"
+  ui[4]: "x"
+  ui[5]: "x"
+  ui[6]: "x"
+  ui[7]: "x"
+
+  # Outputs
+  uo[0]: "x"
+  uo[1]: "x"
+  uo[2]: "x"
+  uo[3]: "x"
+  uo[4]: "x"
+  uo[5]: "x"
+  uo[6]: "x"
+  uo[7]: "x"
+
+  # Bidirectional pins
+  uio[0]: "x"
+  uio[1]: "x"
+  uio[2]: "x"
+  uio[3]: "x"
+  uio[4]: "x"
+  uio[5]: "x"
+  uio[6]: "x"
+  uio[7]: "x"
+
+  # Analog pins
+  ua[0]: ""
+  ua[1]: ""
+  ua[2]: ""
+  ua[3]: ""
+  ua[4]: ""
+  ua[5]: ""
+
+# Do not change!
+yaml_version: 6
