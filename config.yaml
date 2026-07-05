@@ -5,3 +5,38 @@ end_date: '2025-05-27'
 project_dir: 'projects'
 top_level_macro: 'openframe_project_wrapper'
 powered_netlists: true
+
+datasheet_config:
+  theme_override_colour: tt.colours.THEME_SKY_BLUE
+  link_override_colour: tt.colours.THEME_SKY_BLUE
+
+  disabled:
+    # projects with broken links or links to external images
+    - tt_um_dlfloatmac
+    - tt_um_stochastic_addmultiply_CL123abc
+    - tt_um_bitty
+    - tt_um_betz_morse_keyer
+    - tt_um_kapilan_alarm
+    - tt_um_hpdl1414_uart_atudoroi
+    - tt_um_DaDDS
+    - tt_um_wokwi_407306064811090945
+
+    # broken formatting or image
+    - tt_um_devmonk_ay8913
+    - tt_um_algofoogle_vga
+    - tt_um_test_commit
+    - tt_um_virantha_enigma
+
+  artwork:
+    - {id: TT_POCA_01_A, rotate: -90deg}
+    - {id: TT_POCA_01_B, rotate: -90deg}
+    - {id: TT_POCA_01_C, rotate: -90deg}
+    - {id: TT_POCA_01_D, rotate: -90deg}
+    - {id: TT_POCA_01_E, rotate: -90deg}
+    - {id: TT_POCA_01_F, rotate: 90deg}
+    - {id: TT_POCA_01_G, rotate: 90deg}
+    - {id: TT_POCA_01_H, rotate: -90deg}
+    - {id: TT_POCA_01_I, rotate: 90deg}
+
+  include:
+    - docs/chip_map.typ
