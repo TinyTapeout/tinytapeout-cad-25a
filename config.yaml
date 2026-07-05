@@ -1,5 +1,6 @@
 id: 'ttcad25a'
 name: 'Tiny Tapeout CAD 25a'
+pdk: 'sky130A'
 end_date: '2025-05-27'
 project_dir: 'projects'
 top_level_macro: 'openframe_project_wrapper'
